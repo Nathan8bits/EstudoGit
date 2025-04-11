@@ -1,0 +1,36 @@
+Comando			|Função				|Observação
+
+mkdir nome_pasta	Criar pasta			Cria um diretório
+cd nome_pasta		Entrar na pasta			Navegar entre pastas
+echo texto > arquivo	Criar arquivo com texto		Sobrescreve o arquivo			obs: texto entre parênteses
+echo texto >> arquivo	Adicionar texto no final	Não sobrescreve				obs: texto entre parênteses
+notepad arquivo		Abrir no Bloco de Notas		Windows
+nano arquivo		Editar arquivo no terminal	Linux / Git Bash
+type index.html		exibe o arquivo			Windows
+cat index.html    	Exibe o arquivo			Linux / Git Bash
+
+git init		Iniciar repositório Git		Cria a pasta .git
+git add .		Adicionar todos arquivos	Prepara pra commit
+
+git commit -m 
+"mensagem"		Criar um commit			Salva a versão
+
+git log --oneline	Ver histórico dos commits	Mostra hash e mensagem			obs:git log --oneline --graph --all; mostra todas as mudanças
+git checkout hash	Ir para commit antigo		Detached HEAD (modo leitura)
+
+git checkout 
+nome_branch		Trocar de branch		Para branch existente
+
+git checkout -b 
+nome_branch		Criar e mudar pra nova branch	Cria branch nova
+
+git branch		Listar branches			Mostra todas branches locais
+git merge nome_branch	Mesclar branch			Deve estar na branch destino		obs: resolva conflitos editando o arquivo e fazendo outro commit
+git status		Ver estado atual do repositório	Mostra arquivos modificados
+
+git clean -fd		Apagar arquivos 
+			não versionados			CUIDADO ao usar				obs: apaga arquivos novos não comitados
+
+git checkout .		Descartar alterações		Recupera arquivos do último commit	obs: não apaga novos arquivos, restaura os arquivos comitados
+			não comitadas
+		

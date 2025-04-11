@@ -1,0 +1,88 @@
+
+	
+Exemplo do uso do "git clone":
+	git clone https://github.com/SEU-USUARIO/meu-projeto.git
+	cd meu-projeto
+	echo "Meu primeiro projeto Git" > readme.txt
+	git add .
+	git commit -m "Adicionando meu primeiro arquivo"
+	git push origin main
+
+
+	git fetch
+		--> Pega commits novos do remoto(sem exibir nada). Não mexe na sua branch local ainda
+	git log main..origin/main --oneline
+		--> Se houver, exibe os commit que existem no remoto e não existe no local
+
+
+	git pull origin main = git fetch + git merge
+	    --> Puxar alterações do GitHub
+	Significa:
+		origin → Nome do repositório remoto (padrão do Git).
+		main → Nome da branch que você quer puxar as atualizações.
+
+	git branch -m stash minha-branch-stash
+	    --> Renomeia as branchs
+	
+
+	Como o Git interpreta o "git diff hash1 hash2":
+	→ O Git sempre mostra:
+	"O que eu preciso mudar em hash1 para ele virar hash2"
+obs: coloque um hash1(mais antigo) e hash2(mais recente) para ver os arquivo que foram criados. nesse intervalo.
+
+
+
+
+Resumão dos Comandos Git que você praticou:
+1. git diff
+→ Mostra as diferenças (alterações) entre:
+
+O working directory e o staging area.
+
+Dois commits específicos.
+
+Exemplo:
+
+bash
+	git diff hash1 hash2
+→ Mostra o que mudou entre esses commits.
+
+2. git stash
+→ Salva alterações não commitadas (temporariamente) e limpa o working directory.
+
+bash
+	git stash       # Guarda as mudanças
+	git stash list  # Lista os stashes salvos
+	git stash apply stash@{0}  # Recupera o stash (mantém salvo)
+	git stash pop   # Recupera e apaga o stash
+Obs: o stash fica salvo em um "stash stack" (como se fosse uma pilha).
+
+3. git pull
+→ Atualiza o repositório local com o remoto (traz commits novos e faz merge automático).
+
+bash
+	git pull origin main
+
+4. git log --oneline --graph --all
+→ Visualiza o histórico de commits resumido, com desenho das branches.
+
+bash
+	git log --oneline --graph --all
+
+5. tig
+→ Ferramenta visual no terminal para navegar no log do git.
+
+Para ver o grafo das branches:
+
+tig --all
+(Precisa estar em um repositório git)
+
+Conceitos importantes das suas dúvidas:
+	1. Se eu crio um arquivo, faço git add e troco de branch?
+	→ O arquivo "vai junto" se não houve commit, porque está no staging area (Área comum a todas as branch, Git tenta preservar alterações locais).
+
+	2. Se eu crio um arquivo e NÃO faço git add, troco de branch?
+	→ O arquivo permanece no working directory em qualquer branch (porque o Git não controla esse arquivo ainda).
+
+	3. Se eu COMMITO um arquivo em uma branch, e troco pra outra?
+	→ O arquivo só existe na branch que você commitou. Ele "sai" se você mudar de branch.
