@@ -11,6 +11,8 @@ cat index.html    	Exibe o arquivo			Linux / Git Bash
 
 git init		Iniciar repositório Git		Cria a pasta .git
 git add .		Adicionar todos arquivos	Prepara pra commit
+obs: git restore --staged style.css : retira arquivos do staging
+
 
 git commit -m 
 "mensagem"		Criar um commit			Salva a versão
